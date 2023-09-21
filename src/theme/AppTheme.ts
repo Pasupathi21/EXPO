@@ -25,7 +25,7 @@ export const theme = createTheme({
     secondary: {
       main: colors.amber["A400"],
       dark: colors.amber["A700"],
-      light: colors.amber["A100"],
+      light: colors.amber[50],
     },
     error: {
       main: colors.red["500"],
