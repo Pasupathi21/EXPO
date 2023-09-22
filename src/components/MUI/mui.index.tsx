@@ -13,5 +13,15 @@ export * from './Box/Box'
 
 
 // ********************** Paper
-
 export * from './Paper/Paper'
+
+
+
+// *********************** AppBar
+
+export * from './AppBar/AppBar'
+
+
+//  ********************* SideBar
+
+export * from './SideBar/SideBar'

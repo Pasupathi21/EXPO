@@ -25,3 +25,29 @@ export const ContainerBox = styled(Box)(({ theme }) => ({
   backgroundImage: `linear-gradient(to top right, ${theme.palette.primary.dark}, ${theme.palette.secondary.light})`,
   padding: '15px'
 }));
+
+
+export const TopBarBox = styled(Box)(({ theme }) => ({
+  border: `1px solid ${theme.palette.primary.main}`,
+  borderStyle: 'dashed',
+  width: 'inherit',
+  height: 'auto',
+  padding: 5,
+  backgroundImage: `linear-gradient(to right, ${theme.palette.primary.dark}, ${theme.palette.secondary.light})`,
+  borderRadius: 15
+}))
+
+
+export const SideBarBox = styled(Box)(({ theme }) => ({
+  border: `1px solid ${theme.palette.primary.main}`,
+  borderStyle: 'dashed',
+  // height: `480px`,
+  padding: 5,
+  backgroundImage: `linear-gradient(to right, ${theme.palette.primary.dark}, ${theme.palette.secondary.light})`,
+  borderRadius: 15,
+  // overflow:'scroll',
+  overflowY:'scroll',
+  overflowX: 'hidden',
+  // position: 'relative',
+  
+}))

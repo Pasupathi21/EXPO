@@ -1,9 +1,9 @@
 import React from 'react'
 
 //********************  components
-
+import { AppBarComponent } from '../../components/MUI/mui.index'
 
 
 export default function AppTopBar(){
-    return <h1>Top bar</h1>
+    return <AppBarComponent />
 }

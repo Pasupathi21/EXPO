@@ -32,6 +32,9 @@ export const theme = createTheme({
       dark: colors.red["800"],
       light: colors.red["300"],
     },
+    action:{
+      activatedOpacity: 0.4
+    }
   },
   shape: {
     borderRadius: 5,
