@@ -11,7 +11,10 @@ export const PaperContainer = ({ children }: any) => {
         height: '100%',
         width:'100%',
         opacity: `${theme.palette.action.activatedOpacity}`,
-        borderRadius: 2
+        borderRadius: 2,
         // background: 'green',
+        display: 'flex',
+        flexWrap:'wrap',
+        border: '2px solid black'
     }}>{children}</Paper>
 }
