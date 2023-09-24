@@ -49,7 +49,7 @@ export default function AppLayout() {
                 <AppSideBar />
               </Grid>
               <Grid container item xs={10} xl={11} sx={GRIDSX}>
-                {/* ************************* | SideBar| **********  */}
+                {/* ************************* | Container | **********  */}
                 <AppContainer />
               </Grid>
             </Grid>

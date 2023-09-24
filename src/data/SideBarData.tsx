@@ -11,7 +11,7 @@ export const SideBarMenuItems = [
     {
         title: 'Meida First',
         icon: <MmsIcon />,
-        path: APP_ROUTES.MEDIA.pathName,
+        path: APP_ROUTES?.TEST2?.pathName,
         can_access: true
     },
     // {

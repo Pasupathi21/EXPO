@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 // components
-import { AppContentBox } from '../Box/Box'
+import { AppContentBox } from "../Box/Box";
 
 export const AppContent = () => {
-    return <AppContentBox> <h1> AppContent In progress !!!</h1></AppContentBox>
-}
-
-
-   
+  return (
+    <AppContentBox>
+      <Outlet />
+    </AppContentBox>
+  );
+};
