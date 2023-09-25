@@ -2,4 +2,4 @@ import React from 'react'
 
 // ************************ MUI
 
-export const SideBarPopover = () => 
+export const SideBarPopover = () => {}
