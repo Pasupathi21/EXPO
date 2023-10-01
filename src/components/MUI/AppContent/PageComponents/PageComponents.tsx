@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { lazy, Suspense } from "react";
+import React, { Suspense } from "react";
 import { Route } from "react-router-dom";
 
 import { PageComponentArray } from "./PageComponentData";

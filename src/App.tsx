@@ -1,5 +1,5 @@
 import "./styles/App.scss";
-import React, { lazy, Suspense } from "react";
+// import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Component
@@ -11,10 +11,10 @@ import { RANDOM_UNIQUE } from "./utils/getUnique";
 
 // ************************* Pages
 // import TestComponent from './pages/Test/TestPage'
-const TestCom = lazy(() => import("./pages/Test/TestPage"));
+// const TestCom = lazy(() => import("./pages/Test/TestPage"));
 
 // ******************* App Data
-import { APP_ROUTES } from "./data/AppRoutes";
+// import { APP_ROUTES } from "./data/AppRoutes";
 
 
 function App() {
