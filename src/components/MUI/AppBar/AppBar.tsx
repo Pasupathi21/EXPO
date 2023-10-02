@@ -12,6 +12,6 @@ import { TopBarBox } from '../Box/Box'
 
 export const AppBarComponent = () => {
     return <TopBarBox>
-        <h1>TOP BAR</h1>
+        <h1>Expo</h1>
     </TopBarBox>
 }
