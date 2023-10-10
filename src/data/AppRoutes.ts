@@ -3,6 +3,12 @@
 
 
 export const APP_ROUTES: Record<string, any> = Object.freeze({
+    SIGN_IN: {
+        pathName: '/'
+    },
+    LANDING: {
+        pathName: 'landing'
+    },
     MEDIA: {
         pathName: 'expo/media'
     },

@@ -64,3 +64,8 @@ export const AppContentBox = styled(Box)(({ theme }) => ({
   flexShrink: 1
   
 }))
+
+
+export const ContainerBoxV2 = ({ boxType, styles, children }: any) => (
+  <Box component={boxType ? boxType: 'div'} sx={{ ...styles}}>{children}</Box>
+);
