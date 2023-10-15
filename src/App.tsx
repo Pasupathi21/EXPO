@@ -11,6 +11,7 @@ import { RANDOM_UNIQUE } from "./utils/getUnique";
 
 // ************************* Pages
 const SignIn = lazy(() => import("./pages/Authorizations/SignIn"));
+const SignUp = lazy(() => import("./pages/Authorizations/Signup"));
 
 // ******************* App Data
 import { APP_ROUTES } from "./data/AppRoutes";
@@ -24,6 +25,14 @@ function App() {
         element={
           <Suspense>
             <SignIn />
+          </Suspense>
+        }
+      />
+      <Route
+        path={APP_ROUTES?.SIGN_UP?.pathName}
+        element={
+          <Suspense>
+            <SignUp />
           </Suspense>
         }
       />

@@ -24,12 +24,15 @@ import { useNavigate } from 'react-router-dom'
 // ************* const
 import { APP_ROUTES } from '../../data/AppRoutes'
 
-export default function SignIn() {
-  const navigate = useNavigate()
+export default function SignUp() {
+    const navigate = useNavigate()
   const [showPass, setShowPass] = useState<boolean>(false);
+  const [showConfirmPass, setShowConfirmPass] = useState<boolean>(false);
   const getSignIn = () => {};
   const formik = useFormik({
     initialValues: {
+      username: "",
+      phoneno: "",
       email: "",
       password: "",
     },
@@ -50,7 +53,7 @@ export default function SignIn() {
           styles={{
             padding: "0%",
             display: "flex",
-            height: "65%",
+            height: "80%",
             width: "25%",
             alignItems: "center",
             justifyContent: "center",
@@ -69,12 +72,31 @@ export default function SignIn() {
             }}
           >
             <Grid container xs={12} rowGap={2}>
+            <Grid item xs={12}>
+                <TextField_v1
+                  label="User name"
+                  placeholder="enter email"
+                  fullWidth
+                  size="small"
+                  type="text"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField_v1
+                  label="Phone No"
+                  placeholder="enter email"
+                  fullWidth
+                  size="small"
+                  type="number"
+                />
+              </Grid>
               <Grid item xs={12}>
                 <TextField_v1
                   label="Email"
                   placeholder="enter email"
                   fullWidth
                   size="small"
+                  type="email"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -99,7 +121,28 @@ export default function SignIn() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button_v1 variant="contained">singin</Button_v1>
+                <TextField_v1
+                  label="Confirm Password"
+                  type={showConfirmPass ? "text" : "password"}
+                  placeholder="enter password"
+                  fullWidth
+                  size="small"
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton
+                        onClick={() => {
+                            setShowConfirmPass(!showConfirmPass);
+                        }}
+                        disableRipple
+                      >
+                        {showConfirmPass ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button_v1 variant="contained">singup</Button_v1>
               </Grid>
               <Grid item xs={12}>
                 <Divider_v1 style={{ width: "100%" }} />
@@ -111,14 +154,14 @@ export default function SignIn() {
               }}>
                 <Typography>
                   {" "}
-                  Don't have an account?&nbsp;{" "}
+                  Do you have a account?&nbsp;{" "}
                   <Button_v2
                     disableRipple
                     size="small"
                     style={{ borderStyle: "none" }}
-                    onClick={() => { navigate(APP_ROUTES?.SIGN_UP?.pathName)}}
+                    onClick={() => {navigate(APP_ROUTES?.SIGN_IN?.pathName)}}
                   >
-                    Signup
+                    Signin
                   </Button_v2>
                 </Typography>
               </Grid>

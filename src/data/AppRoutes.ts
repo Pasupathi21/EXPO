@@ -6,6 +6,9 @@ export const APP_ROUTES: Record<string, any> = Object.freeze({
     SIGN_IN: {
         pathName: '/'
     },
+    SIGN_UP: {
+        pathName:'/signup'
+    },
     LANDING: {
         pathName: 'landing'
     },

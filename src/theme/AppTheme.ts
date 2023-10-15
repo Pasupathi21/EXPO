@@ -46,3 +46,7 @@ export const theme = createTheme({
     tooltip: 1500,
   },
 });
+
+export const ALLCOLORS = {
+  ...colors
+}
