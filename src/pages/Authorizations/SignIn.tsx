@@ -9,6 +9,7 @@ import {
   Button_v1,
   Divider_v1,
   Button_v2,
+  LoadingButton_v1
 } from "../../components/MUI/mui.index";
 
 // ******************** Formik
@@ -23,17 +24,21 @@ import { useNavigate } from 'react-router-dom'
 
 // ************* const
 import { APP_ROUTES } from '../../data/AppRoutes'
+import { signinSchema }  from '../../data/yup/signin.yup'
 
 export default function SignIn() {
   const navigate = useNavigate()
   const [showPass, setShowPass] = useState<boolean>(false);
-  const getSignIn = () => {};
+  const getSignIn = (values: Record<string, any>, action) => {
+    console.log('values >>>>>', values)
+  };
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: getSignIn,
+    validationSchema: signinSchema,
+    onSubmit:(value: Record<string, any>, act: any) => getSignIn(value, act) ,
   });
   return (
     <ContainerWrapper>
@@ -75,6 +80,12 @@ export default function SignIn() {
                   placeholder="enter email"
                   fullWidth
                   size="small"
+                  name="email"
+                  error={Boolean(formik?.errors?.email )}
+                  helperText={ formik?.errors?.email}
+                  value={formik?.values?.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik?.handleBlur}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -96,10 +107,16 @@ export default function SignIn() {
                       </IconButton>
                     ),
                   }}
+                  name="password"
+                  value={formik?.values?.password}
+                  error={Boolean(formik?.errors?.password && formik?.touched?.password)}
+                  helperText={ formik?.touched?.password && formik?.errors?.password}
+                  onChange={formik.handleChange}
+                  onBlur={formik?.handleBlur}
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button_v1 variant="contained">singin</Button_v1>
+                <LoadingButton_v1 variant="contained" type="submit">singin</LoadingButton_v1>
               </Grid>
               <Grid item xs={12}>
                 <Divider_v1 style={{ width: "100%" }} />
