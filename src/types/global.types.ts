@@ -19,4 +19,9 @@ string |
 [] |
 TNormal >
 
+
+export type IConfig = Record<string, string | Array<Record<string, unknown>> | boolean | number | Record<string, unknown>>
+
+export type Ipayload = Record<string, string | Array<Record<string, unknown>> | boolean | number | Record<string, unknown>> | Record<string, string | Array<T> | boolean | number | Record<string, unknown>>[]
+
 export const getTypeOfData = (value: unknown | TNormal) => typeof value
