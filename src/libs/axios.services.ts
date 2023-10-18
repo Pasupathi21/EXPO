@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import LocalStorageService from './localStorage.service'
+import { Ipayload } from '../types/global.types'
 
 class AxiosService{
 
     apiInstance!: AxiosInstance
     constructor() {
+        this.apiInstance = axios.create()
     }
 
     onRequest(config:AxiosRequestConfig ): AxiosRequestConfig | any  {
@@ -37,24 +39,24 @@ class AxiosService{
        
     }
     // **************** | Axios REST methods without interceptors| *****************
-    GET(){
-        return axios.get
+    async GET(URL: string, config?: AxiosRequestConfig){
+        return await axios.get(URL, config)
     }
 
-    POST(){
-        return axios.post
+    async POST(URL: string, payload:Ipayload, config?:AxiosRequestConfig){
+        return await axios.post(URL, payload, config)
     }
 
-    PUT(){
-        return axios.put
+    async PUT(URL: string, payload: Ipayload, config?:AxiosRequestConfig){
+        return await axios.put(URL, payload, config)
     }
 
-    PATCH(){
-        return axios.patch
+    async PATCH(URL: string, payload: Ipayload, config?:AxiosRequestConfig){
+        return await axios.patch(URL, payload, config)
     }
 
-    DELETE(){
-        return axios.delete
+    async DELETE(URL: string, config?: AxiosRequestConfig){
+        return axios.delete(URL, config)
     }
 }
 export default new AxiosService()
