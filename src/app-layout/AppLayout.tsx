@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // ******************* components
 import { ContainerWrapper } from "../components/MUI/mui.index";
 
 // **************** MUI
-import { Grid, Box } from "@mui/material";
+import { Grid } from "@mui/material";
 
 // ************* Layout component
 import AppTopBar from "./AppTopBar/AppTopBar";
@@ -29,6 +29,7 @@ export default function AppLayout() {
     width: `${window.innerWidth}px`,
   });
   useEffect(() => {
+    console.log(wh)
     seWH({
       height: `${window.innerHeight}px`,
       width: `${window.innerWidth}px`,

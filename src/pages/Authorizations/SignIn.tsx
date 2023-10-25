@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import { useState } from "react";
 
 // **************** Component
 import {
@@ -8,7 +8,6 @@ import {
   PaperContainerV2,
   ContainerBoxV2,
   TextField_v1,
-  Button_v1,
   Divider_v1,
   Button_v2,
   LoadingButton_v1
@@ -38,7 +37,7 @@ export default function SignIn() {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false)
 
-  const getSignIn = async (values: Record<string, any>, action: Record<string, 'Function'> ) => {
+  const getSignIn = async (values: Record<string, any>, _action: Record<string, 'Function'> ) => {
     console.log('values', values)
     setLoading(true)
    const resData: AxiosResponse =  await AuthenticationService.signIn(values)

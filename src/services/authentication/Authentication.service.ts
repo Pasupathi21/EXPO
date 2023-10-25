@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import AxiosService from '../../libs/axios.services'
-import { IConfig, Ipayload } from '../../types/global.types'
+import { Ipayload } from '../../types/global.types'
 import { BASE_API_ENDPOINT,  API_ROUTES} from '../../data/environment'
 
 

@@ -2,7 +2,7 @@ import axios from "axios";
 
 type IConfig = Record<string, string | Array<Record<string, unknown>> | boolean | number | Record<string, unknown>>
 
-type Ipayload = Record<string, string | Array<Record<string, unknown>> | boolean | number | Record<string, unknown>> | Record<string, string | Array<T> | boolean | number | Record<string, unknown>>[]
+type Ipayload = Record<string, string | Array<Record<string, unknown>> | boolean | number | Record<string, unknown>> | Record<string, string | Array<Record<string, unknown>> | boolean | number | Record<string, unknown>>[]
 
 class AxiosService {
   constructor(){

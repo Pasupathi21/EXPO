@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState} from 'react'
+import { useEffect, useState} from 'react'
 
 // **************** Slice
-import { TestAPIGelAll, TestAPIGetOne } from '../../redux/features/test/test'
+import { TestAPIGelAll } from '../../redux/features/test/test'
 
 // ************** Redux Hooks
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/redux.hooks'

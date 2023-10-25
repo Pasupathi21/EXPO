@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+// require('dotenv').config()
+
+console.log('Environment')
 export const  BASE_API_ENDPOINT = 'http://localhost:2111'
 
 

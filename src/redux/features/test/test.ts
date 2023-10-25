@@ -36,19 +36,19 @@ export const TestAPIGetOne = createAsyncThunk(
   }
 );
 
-interface TestInitialState {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
+// interface TestInitialState {
+//   userId: number;
+//   id: number;
+//   title: string;
+//   completed: boolean;
+// }
 
-const testData: TestInitialState | Array<TestInitialState> = {
-  userId: 0,
-  id: 0,
-  title: "",
-  completed: false,
-};
+// const testData: TestInitialState | Array<TestInitialState> = {
+//   userId: 0,
+//   id: 0,
+//   title: "",
+//   completed: false,
+// };
 
 export const TestSlice = createSlice({
   name: "testApi",
