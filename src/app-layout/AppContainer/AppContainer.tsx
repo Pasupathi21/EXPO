@@ -1,4 +1,3 @@
-import React from 'react'
 
 // ************** Component
 import { AppContent } from '../../components/MUI/mui.index'

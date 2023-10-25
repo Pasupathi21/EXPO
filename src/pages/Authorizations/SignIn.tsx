@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState } from "react";
 
 // **************** Component
 import {
@@ -6,7 +8,6 @@ import {
   PaperContainerV2,
   ContainerBoxV2,
   TextField_v1,
-  Button_v1,
   Divider_v1,
   Button_v2,
   LoadingButton_v1
@@ -26,11 +27,30 @@ import { useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../data/AppRoutes'
 import { signinSchema }  from '../../data/yup/signin.yup'
 
+// ***************** Service
+import AuthenticationService from '../../services/authentication/Authentication.service'
+import { AxiosResponse } from "axios";
+import LocalStorageService from '../../libs/localStorage.service'
+
 export default function SignIn() {
   const navigate = useNavigate()
   const [showPass, setShowPass] = useState<boolean>(false);
-  const getSignIn = (values: Record<string, any>, action) => {
-    console.log('values >>>>>', values)
+  const [loading, setLoading] = useState<boolean>(false)
+
+  const getSignIn = async (values: Record<string, any>, _action: Record<string, 'Function'> ) => {
+    console.log('values', values)
+    setLoading(true)
+   const resData: AxiosResponse =  await AuthenticationService.signIn(values)
+   console.log('Sign in response', resData)
+   if(resData?.status){
+    // LocalStorageService.setItem('user', JSON.stringify({
+    //   username: resData?.data?.username,
+    //   email: resData?.data?.email
+    // }))
+    LocalStorageService.setItem('access-token', resData?.data?.response?.token)
+   }
+   setLoading(false)
+  //  action?
   };
   const formik = useFormik({
     initialValues: {
@@ -116,7 +136,7 @@ export default function SignIn() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <LoadingButton_v1 variant="contained" type="submit">singin</LoadingButton_v1>
+                <LoadingButton_v1 variant="contained" type="submit" loading={loading}>singin</LoadingButton_v1>
               </Grid>
               <Grid item xs={12}>
                 <Divider_v1 style={{ width: "100%" }} />

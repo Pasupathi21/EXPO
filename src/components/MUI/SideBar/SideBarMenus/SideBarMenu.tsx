@@ -1,25 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // *************** React router dom
 
 import { Link, useNavigate } from "react-router-dom";
 
 // **************** MUI
-import { Drawer, List, Box, Tooltip } from "@mui/material";
-import { styled, useTheme } from "@mui/system";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
+import { List, ListItemButton, Tooltip } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 // **************** APP_DATA
@@ -50,7 +40,7 @@ const SubMenus = (prop: any): JSX.Element => {
   // ********************* useEffect ******************
   useEffect(() => {
     const obj: any = {};
-    subMenusItems?.forEach((item: any, index: number) => {
+    subMenusItems?.forEach((_item: any, index: number) => {
       obj[`${position}${index}`] = false;
     });
     setOpenChildSubMenu({ ...openChildSubMenu });
@@ -178,7 +168,7 @@ export const SideBarMenus = () => {
   // ************************  useEffect ***********************
   useEffect(() => {
     const obj: Record<string, boolean> = {};
-    SideBarMenuItems.forEach((item: any, index: number) => {
+    SideBarMenuItems.forEach((_item: any, index: number) => {
       obj[index] = false;
     });
     setOpenSubmenu({ ...obj });

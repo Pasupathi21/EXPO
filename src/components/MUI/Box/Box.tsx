@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState} from "react";
 
 // **************** MUI
 import { Box } from "@mui/material";

@@ -1,4 +1,3 @@
-import React from 'react'
 
 // ***************** Component
 import { SideBar } from '../../components/MUI/mui.index'

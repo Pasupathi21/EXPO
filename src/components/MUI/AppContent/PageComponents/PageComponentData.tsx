@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 
 
 // ******************** APP DATA
