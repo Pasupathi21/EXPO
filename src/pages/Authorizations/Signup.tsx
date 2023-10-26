@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 
 // **************** Component
@@ -6,13 +8,14 @@ import {
   PaperContainerV2,
   ContainerBoxV2,
   TextField_v1,
-  Button_v1,
   Divider_v1,
   Button_v2,
+  LoadingButton_v1,
 } from "../../components/MUI/mui.index";
 
 // ******************** Formik
 import { useFormik } from "formik";
+
 
 // ************** MUI
 import { Grid, IconButton, Typography } from "@mui/material";
@@ -23,19 +26,48 @@ import { useNavigate } from 'react-router-dom'
 
 // ************* const
 import { APP_ROUTES } from '../../data/AppRoutes'
+import { signUpSchema } from '../../data/yup/signup.yup'
+import { API_DATE_FORMAT } from '../../data/AppConst'
+
+// ***************** Service
+import AuthenticationService from '../../services/authentication/Authentication.service'
+import { AxiosResponse } from "axios";
+
+// ****************** utils
+import { currentDate } from '../../utils/datetime'
+
+
 
 export default function SignUp() {
     const navigate = useNavigate()
   const [showPass, setShowPass] = useState<boolean>(false);
   const [showConfirmPass, setShowConfirmPass] = useState<boolean>(false);
-  const getSignIn = () => {};
+  const [loading, setLoading] = useState<boolean>(false)
+  const getSignIn = async (value: Record<string, unknown>, action: any) => {
+    try{
+      // console.log('values', value)
+      const payload = {
+        ...value,
+        createddate: currentDate(API_DATE_FORMAT[0]),
+        updateddate:currentDate(API_DATE_FORMAT[0])
+      }
+      console.log('payload', payload)
+      console.log(currentDate(API_DATE_FORMAT[0]))
+      // await AuthenticationService.signUp()
+      setLoading(true)
+    }catch(e){
+      setLoading(false)
+    }
+  };
   const formik = useFormik({
     initialValues: {
       username: "",
       phoneno: "",
       email: "",
       password: "",
+      confirmPassword: ""
     },
+    validationSchema: signUpSchema,
     onSubmit: getSignIn,
   });
   return (
@@ -53,7 +85,7 @@ export default function SignUp() {
           styles={{
             padding: "0%",
             display: "flex",
-            height: "80%",
+            height: "auto",
             width: "25%",
             alignItems: "center",
             justifyContent: "center",
@@ -69,6 +101,8 @@ export default function SignUp() {
               flexWrap: "wrap",
               justifyContent: "center",
               width: "90%",
+              padding: "15% 0% 5% 0%" 
+              // height:'inherit'
             }}
           >
             <Grid container xs={12} rowGap={2}>
@@ -79,6 +113,12 @@ export default function SignUp() {
                   fullWidth
                   size="small"
                   type="text"
+                  name="username"
+                  value={formik?.values?.username}
+                  onChange={formik?.handleChange}
+                  onBlur={formik?.handleBlur}
+                  error={Boolean(formik?.errors?.username && formik?.touched?.username)}
+                  helperText={ formik?.touched?.username && formik?.errors?.username}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -88,6 +128,12 @@ export default function SignUp() {
                   fullWidth
                   size="small"
                   type="number"
+                  name="phoneno"
+                  value={formik?.values?.phoneno}
+                  error={Boolean(formik?.errors?.phoneno && formik?.touched?.phoneno)}
+                  helperText={formik?.touched?.phoneno && formik?.errors?.phoneno}
+                  onChange={formik?.handleChange}
+                  onBlur={formik?.handleBlur}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -97,6 +143,12 @@ export default function SignUp() {
                   fullWidth
                   size="small"
                   type="email"
+                  name="email"
+                  value={formik?.values?.email}
+                  error={Boolean( formik?.touched?.email && formik?.errors?.email)}
+                  helperText={ formik?.touched?.email && formik?.errors?.email}
+                  onChange={formik?.handleChange}
+                  onBlur={formik?.handleBlur}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -118,6 +170,12 @@ export default function SignUp() {
                       </IconButton>
                     ),
                   }}
+                  name="password"
+                  value={formik?.values?.password}
+                  error={Boolean( formik?.touched?.password && formik?.errors?.password)}
+                  helperText={ formik?.touched?.password && formik?.errors?.password}
+                  onChange={formik?.handleChange}
+                  onBlur={formik?.handleBlur}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -139,10 +197,16 @@ export default function SignUp() {
                       </IconButton>
                     ),
                   }}
+                  name="confirmPassword"
+                  value={formik?.values?.confirmPassword}
+                  error={Boolean(formik?.touched?.confirmPassword && formik?.errors?.confirmPassword)}
+                  helperText={ formik?.touched?.confirmPassword && formik?.errors?.confirmPassword}
+                  onChange={formik?.handleChange}
+                  onBlur={formik?.handleBlur}
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button_v1 variant="contained">singup</Button_v1>
+                <LoadingButton_v1 variant="contained" type="submit" loading={loading}>singup</LoadingButton_v1>
               </Grid>
               <Grid item xs={12}>
                 <Divider_v1 style={{ width: "100%" }} />

@@ -43,11 +43,12 @@ export default function SignIn() {
    const resData: AxiosResponse =  await AuthenticationService.signIn(values)
    console.log('Sign in response', resData)
    if(resData?.status){
-    // LocalStorageService.setItem('user', JSON.stringify({
-    //   username: resData?.data?.username,
-    //   email: resData?.data?.email
-    // }))
+    LocalStorageService.setItem('user', JSON.stringify({
+      username: resData?.data?.response?.username,
+      email: resData?.data?.response?.email
+    }))
     LocalStorageService.setItem('access-token', resData?.data?.response?.token)
+    navigate(APP_ROUTES?.LANDING?.pathName)
    }
    setLoading(false)
   //  action?
