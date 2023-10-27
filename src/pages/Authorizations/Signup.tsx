@@ -43,22 +43,28 @@ export default function SignUp() {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [showConfirmPass, setShowConfirmPass] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false)
-  const getSignIn = async (value: Record<string, unknown>, action: any) => {
+  async function getSignIn(value: Record<string, unknown>, action: any){
     try{
       // console.log('values', value)
       const payload = {
         ...value,
-        createddate: currentDate(API_DATE_FORMAT[0]),
-        updateddate:currentDate(API_DATE_FORMAT[0])
-      }
+        createddate: currentDate(API_DATE_FORMAT[5]),
+        updateddate:currentDate(API_DATE_FORMAT[5])
+      } 
       console.log('payload', payload)
-      console.log(currentDate(API_DATE_FORMAT[0]))
-      // await AuthenticationService.signUp()
-      setLoading(true)
+      console.log(currentDate(API_DATE_FORMAT[5]))
+      setLoading(false)
+      const response: AxiosResponse = await AuthenticationService.signUp(payload)
+      if(response?.status){
+        console.log('data', response)
+        navigate(APP_ROUTES?.SIGN_IN?.pathName)
+      }
+      setLoading(false)
     }catch(e){
+      console.log('ERROR', e)
       setLoading(false)
     }
-  };
+  }
   const formik = useFormik({
     initialValues: {
       username: "",

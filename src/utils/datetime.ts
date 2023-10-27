@@ -1,3 +1,5 @@
-import * as  moment from "moment"
+import moment from "moment"
 
-export const currentDate = (format: string)=> moment(new Date()).utcOffset("+5:30").format(format)
+import { API_DATE_FORMAT } from '../data/AppConst'
+
+export const currentDate = (format: string = API_DATE_FORMAT[5])=>  new Date(moment(new Date()).utcOffset("+5:30").format(format))
