@@ -7,7 +7,7 @@ console.log('BASE_API_ENDPOINT', BASE_API_ENDPOINT)
 
 export const API_ROUTES = Object.freeze({
     AUTH: {
-        SIGN_IN: '/api/user/signin',
-        CREATE: '/api/user/create'
+        SIGN_IN: `${BASE_API_ENDPOINT}/api/user/signin`,
+        CREATE: `${BASE_API_ENDPOINT}/api/user/create`
     }
 })

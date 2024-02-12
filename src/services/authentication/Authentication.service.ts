@@ -12,11 +12,19 @@ class AuthenticationService{
         this.AXIOS = AxiosService.getApiInstance()
     }
     async signIn(paylaod: Ipayload, query?: string, ){
-        let URL = `${BASE_API_ENDPOINT}${API_ROUTES?.AUTH?.SIGN_IN}`
+        let URL = API_ROUTES?.AUTH?.SIGN_IN
         if(query){
           URL += `?${query}`  
         }
         return await AxiosService.POST(URL, paylaod)
+    }
+
+    async signUp(payload: Ipayload, query?: string){
+        let URL = API_ROUTES?.AUTH?.CREATE
+        if(query){
+          URL += `?${query}`  
+        }
+        return await AxiosService.POST(URL, payload)
     }
 }
 
